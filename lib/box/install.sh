@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     set -e -x
 
     /vagrant/drifter/bin/install.sh
-    drifter box post_install_setup ${BOX}
+    drifter box post_install ${BOX}
   SHELL
 end
 EOF
