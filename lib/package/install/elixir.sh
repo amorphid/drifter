@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e +x
+set -e -x
 
 # instructions from http://elixir-lang.org/install.html#unix-and-unix-like
 

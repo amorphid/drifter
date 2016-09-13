@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -e +x
+set -e -x
 
 drifter package install elixir

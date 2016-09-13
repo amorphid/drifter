@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e +x
+set -e -x
 
 COMMAND=$1
 OPTIONS=${@:2}

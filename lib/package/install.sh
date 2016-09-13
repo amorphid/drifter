@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e +x
+set -e -x
 
 PACKAGE=$1
 OPTIONS=${@:2}
