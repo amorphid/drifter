@@ -1,26 +1,20 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
-EXECUTABLE=/usr/local/bin/drifter
-SOURCE=$( cd $(dirname $0) && cd .. && pwd)
-TARGET=/opt/drifter
+source_bin=$(dirname $0)
+source_home=$(cd $source_bin && cd .. & pwd)
+target_bin=/usr/local/bin
+target_home=/opt/drifter
 
-mkdir -p $TARGET
-cp -pR ${SOURCE}/* $TARGET
+# create executables directory
+mkdir -p $target_bin
 
-mkdir -p $(dirname $EXECUTABLE)
-cat > $EXECUTABLE <<EOF
-#!/bin/bash
+# create drifter executable
+(
+  executable=${target_bin}/drifter
+  ${source_bin}/install/create_drifter.sh $target_home $executable
+)
 
-set -e
-
-export DRIFTER_HOME=${TARGET}
-export DRIFTER_LIB=\${DRIFTER_HOME}/lib
-export DRIFTER_BOXES=\${HOME}/drifter_boxes
-COMMAND=\$1
-OPTIONS=\${@:2}
-
-\${DRIFTER_LIB}/\${COMMAND}.sh \$OPTIONS
-EOF
-chmod +x $EXECUTABLE
+# copy source home to target home
+cp -pR $source_home $target_home
