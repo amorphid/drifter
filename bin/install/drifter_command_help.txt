@@ -10,7 +10,7 @@ command=${raw_command//\// }
 commands=$(ls -p $commands_dir | grep -v /)
 
 echo
-echo "Available commands for '${command}'"
+echo "Available sub-commands for '${command}'"
 echo
 
 for c in $commands; do

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
-PACKAGE=$1
-OPTIONS=${@:2}
+shell_script=$0
+options=$@
 
-${DRIFTER_LIB}/package/install/${PACKAGE}.sh $OPTIONS
+drifter_command_run $shell_script $options
