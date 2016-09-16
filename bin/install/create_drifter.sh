@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 
 home=$1
 executable=$2
@@ -11,7 +11,7 @@ cat > $executable <<EOF
 
 set -eux
 
-${home}/lib/drifter.sh "\$@"
+${home}/drifter.sh "\$@"
 EOF
 
 # make executable bootable
