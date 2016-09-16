@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
 # this script intentionally does nothing

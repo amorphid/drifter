@@ -1,4 +1,6 @@
-set -e -x
+#!/bin/bash
+
+set -eux
 
 # download and install elasticsearch's signing key
 wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | apt-key add -

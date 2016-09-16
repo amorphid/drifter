@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
 apt-get install -y debootstrap

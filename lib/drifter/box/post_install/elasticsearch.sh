@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
 drifter package install oracle-java8-installer
 drifter package install elasticsearch

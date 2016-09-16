@@ -1,9 +1,17 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
-BOX=$1
-BOX_DIR=${DRIFTER_BOXES}/${BOX}
+if [[ $@ ]]; then
+  echo $@
+else
+  echo no cash for you
+fi
 
-echo TODO: add non-forced uninstall
-(cd $BOX_DIR && vagrant destroy -f && cd .. && rm -rf $BOX_DIR)
+# box=$1
+
+# box=$1
+# box_dir=${DRIFTER_BOXES}/${box}
+#
+# echo TODO: add non-forced uninstall
+# (cd $box_dir && vagrant destroy -f && cd .. && rm -rf $box_dir)

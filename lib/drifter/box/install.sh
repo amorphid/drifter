@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -x
+set -eux
 
 BOX=$1
 BOX_HOME=${DRIFTER_BOXES}/${BOX}
