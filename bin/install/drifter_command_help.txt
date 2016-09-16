@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -eu
+
+shell_script=$1
+commands_dir=${shell_script%.sh}
+home={{target_lib}}
+raw_command=${commands_dir/${home}\//}
+command=${raw_command//\// }
+commands=$(ls -p $commands_dir | grep -v /)
+
+echo
+echo "Available commands for '${command}'"
+echo
+
+for c in $commands; do
+  echo "  ${c%.sh}"
+done
+
+echo

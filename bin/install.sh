@@ -7,20 +7,23 @@ source_home=$(cd $source_bin && cd .. & pwd)
 target_bin=/usr/local/bin
 target_home=/opt/drifter
 target_lib=${target_home}/lib
+commands="
+  drifter
+  drifter_command_help
+"
 
 # create executables directory
 mkdir -p $target_bin
 
-# create drifter executable
+# create  executables
 (
-  executable=${target_bin}/drifter
-  ${source_bin}/install/create_drifter.sh $target_lib $executable
-)
-
-# create drifter_command_help executable
-(
-  executable=${target_bin}/drifter_command_help
-  ${source_bin}/install/create_drifter_command_help.sh $target_lib $executable
+  for command in $commands; do
+    executable=${target_bin}/${command}
+    template=$(cat ${source_bin}/install/${command}.txt)
+    script=${template/{{target_lib\}\}/$target_lib}
+    echo "$script" > $executable
+    chmod +x $executable
+  done
 )
 
 # copy source home to target home
